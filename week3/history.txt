@@ -1,0 +1,18 @@
+circle 40 20 30
+circle 40 22 25
+circle 35 10 5
+circle 45 10 5
+circle 40 13 3
+line 40 15 40 24
+line 23 24 57 24
+line 23 24 33 31
+line 33 31 47 31
+line 47 31 57 24
+line 31 29 40 27 
+line 40 27 49 29
+line 50 21 73 23
+line 51 19 73 19
+line 50 17 73 15
+line 30 21 7 23
+line 29 19 7 19
+line 30 17 7 15
