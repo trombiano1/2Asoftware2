@@ -11,7 +11,7 @@ int main(const int argc, const char **argv)
   const double alpha = (argc == 2) ? atof(argv[1]) : 0.01;
 
   const int dim = f_dimension();
-
+  printf("asdf");
   FILE *fp;
   char buf[100];
   fp = stdout;
@@ -19,10 +19,10 @@ int main(const int argc, const char **argv)
   FILE *file;
   char row[100];
   char * token;
-
+  
   Sample cities[14];
   
-  file = fopen("data.csv","r");
+  file = fopen("data_ll.csv","r");
   int count = 0;
   while(fgets(buf, sizeof(row), file) != NULL){
     token = strtok(buf, ",");
@@ -31,6 +31,10 @@ int main(const int argc, const char **argv)
     cities[count].alt = atof(token);
     token = strtok(NULL, ",");
     cities[count].temp = atof(token);
+    token = strtok(NULL, ",");
+    cities[count].lat = atof(token);
+    token = strtok(NULL, ",");
+    cities[count].lon = atof(token);
     count++;
   }
   fclose(file);
@@ -52,10 +56,10 @@ int main(const int argc, const char **argv)
   printf("When the altitude is 3.776km, the estimated temperature is %.3f degrees celcius.\n",x[0]*3.776+x[1]);
   free(x);
 
-  qsort(cities, 14, sizeof(Sample), compare_samples);
-
   for(int i = 0; i < 14; i++){
-    printf("%s\n",cities[i].loc);
+    printf("%s ",cities[i].loc);
+    printf("%f ",cities[i].alt);
+    printf("%f\n",cities[i].temp);
   }
   return 0;
 }

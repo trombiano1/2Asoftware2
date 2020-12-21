@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -g
 LDLIBS = -lm
-OBJS = main.o func.o optimize.o
-TARGET = optimizer
+OBJS = mtfuji.o func1.o optimize1.o compare.o
+TARGET = optimizer1
 
 $(TARGET): $(OBJS)
 	$(CC) -o $@ $^ $(LDLIBS)
