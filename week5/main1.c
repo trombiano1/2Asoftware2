@@ -3,6 +3,7 @@
 #include <string.h>
 #include "optimize1.h"
 #include "func1.h"
+#include "compare.h"
 
 int main(const int argc, const char **argv)
 {
@@ -12,7 +13,7 @@ int main(const int argc, const char **argv)
   const int dim = f_dimension();
 
   FILE *fp;
-  char buf[14];
+  char buf[100];
   fp = stdout;
   
   FILE *file;
@@ -47,9 +48,14 @@ int main(const int argc, const char **argv)
 
   const int iter = optimize(alpha, dim, x, cities_p, f_gradient);
   printf("number of iterations = %d\n", iter);
-
-  printf("asdf");
-
+  printf("a = %f, b = %f\n",x[0],x[1]);
+  printf("When the altitude is 3.776km, the estimated temperature is %.3f degrees celcius.\n",x[0]*3.776+x[1]);
   free(x);
+
+  qsort(cities, 14, sizeof(Sample), compare_samples);
+
+  for(int i = 0; i < 14; i++){
+    printf("%s\n",cities[i].loc);
+  }
   return 0;
 }

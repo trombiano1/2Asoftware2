@@ -1,0 +1,5 @@
+#include <stdio.h>
+
+int compare_samples(Samples *cities_p, int i, int j){
+  return 0;
+};

@@ -14,7 +14,6 @@ int f_dimension()
 
 double f_value(const double x[])
 {
-  
   return 0;
 }
 

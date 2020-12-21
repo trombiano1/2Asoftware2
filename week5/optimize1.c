@@ -15,7 +15,7 @@ double calc_norm(const int dim, double v[])
 }
 
 int optimize(const double alpha, const int dim, double x[], Sample *cities_p,
-             void (*calc_grad)(const double [], Sample*, double []))
+             void (*calc_grad)(const double [], Sample *, double []))
 {
   // 勾配ベクトルを記録する領域を確保
   double *g = malloc(dim * sizeof(double));
@@ -28,11 +28,11 @@ int optimize(const double alpha, const int dim, double x[], Sample *cities_p,
     
     // 勾配ベクトルのノルムを評価
     const double norm = calc_norm(dim, g);
-    printf("%3d norm = %7.4f", iter, norm);
+    /* printf("%3d norm = %7.4f", iter, norm); */
     for (int i = 0; i < dim; i++) {
-      printf(", x[%d] = %7.4f", i, x[i]);
+      /* printf(", x[%d] = %7.4f", i, x[i]); */
     }
-    printf("\n");
+    /* printf("\n"); */
 
     if (norm < 0.01) break;
 
