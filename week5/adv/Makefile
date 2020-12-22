@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -g
 LDLIBS = -lm
-OBJS = adv_regression.o func1.o optimize1.o compare.o
+OBJS = adv_regression.o func1.o optimize1.o
 TARGET = optimizer1
 
 $(TARGET): $(OBJS)

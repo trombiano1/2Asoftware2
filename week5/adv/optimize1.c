@@ -28,11 +28,9 @@ int optimize(const double alpha, const int dim, double x[], Sample *cities_p,
     
     // 勾配ベクトルのノルムを評価
     const double norm = calc_norm(dim, g);
-    /* printf("%3d norm = %7.4f", iter, norm); */
-    for (int i = 0; i < dim; i++) {
-      /* printf(", x[%d] = %7.4f", i, x[i]); */
-    }
-    /* printf("\n"); */
+    printf("%3d norm = %7.4f", iter, norm);
+    printf("\n(%f,%f,%f,%f)\n",g[0],g[1],g[2],g[3]);
+    printf("\n");
 
     if (norm < 0.01) break;
 

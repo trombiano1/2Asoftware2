@@ -26,6 +26,7 @@ int main(const int argc, const char **argv)
   int count = 0;
   while(fgets(buf, sizeof(row), file) != NULL){
     token = strtok(buf, ",");
+    cities[count].loc = (char*)malloc(sizeof(char)*20);
     strcpy(cities[count].loc, token);
     token = strtok(NULL, ",");
     cities[count].alt = atof(token);

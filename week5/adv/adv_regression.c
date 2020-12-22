@@ -3,15 +3,14 @@
 #include <string.h>
 #include "optimize1.h"
 #include "func1.h"
-#include "compare.h"
 
 int main(const int argc, const char **argv)
 {
   // 引数の個数が1の時だけ、alpha に第1引数を採用し、それ以外は0.01
-  const double alpha = (argc == 2) ? atof(argv[1]) : 0.01;
+  const double alpha = (argc == 2) ? atof(argv[1]) : 0.0001;
 
   const int dim = f_dimension();
-  printf("asdf");
+  printf("%d\n",dim);
   FILE *fp;
   char buf[100];
   fp = stdout;
@@ -27,6 +26,8 @@ int main(const int argc, const char **argv)
   while(fgets(buf, sizeof(row), file) != NULL){
     token = strtok(buf, ",");
     cities[count].loc = token;
+    cities[count].loc = (char*)malloc(sizeof(char)*20);
+    strcpy(cities[count].loc, token); 
     token = strtok(NULL, ",");
     cities[count].alt = atof(token);
     token = strtok(NULL, ",");
